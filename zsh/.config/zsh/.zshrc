@@ -11,9 +11,9 @@
 #fi
 if [[ "$ZELLIJ" == "" && $- == *i* ]]; then
     if [[ "$(</proc/$PPID/cmdline)" =~ "^sshd:.*" ]]; then
-        zellij a -c 0  2> /dev/null
+        zellij a --index 0 -c 2> /dev/null
         if [[ $? == 1 ]]; then
-            exec zellij attach -c 0
+            exec zellij attach --index 0 -c 
         fi
     fi
 fi
