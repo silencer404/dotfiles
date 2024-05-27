@@ -1,22 +1,25 @@
-# use tmux session 0 when open new non-embedded interactive shell over ssh
-#if [[ "$TMUX" == "" && $- == *i* ]]; then
-#    if [[ "$(</proc/$PPID/cmdline)" =~ "^sshd:.*" ]]; then
-#        tmux has-session -t 0 2> /dev/null
-#        if [[ $? == 1 ]]; then
-#            exec tmux new -s 0
-#        else
-#            exec tmux a -t 0
-#        fi
-#    fi
-#fi
-if [[ "$ZELLIJ" == "" && $- == *i* ]]; then
+#use tmux session 0 when open new non-embedded interactive shell over ssh
+if [[ "$TMUX" == "" && $- == *i* ]]; then
     if [[ "$(</proc/$PPID/cmdline)" =~ "^sshd:.*" ]]; then
-        zellij a --index 0 -c 2> /dev/null
+        tmux has-session -t 0 2> /dev/null
         if [[ $? == 1 ]]; then
-            exec zellij attach --index 0 -c 
+            exec tmux new -s 0
+        else
+            exec tmux a -t 0
         fi
     fi
 fi
+
+#if [[ "$ZELLIJ" == "" && $- == *i* ]]; then
+#    if [[ "$(</proc/$PPID/cmdline)" =~ "^sshd:.*" ]]; then
+#        result=$(zellij ls | awk '$1 ~ /sc/'| awk -F ' ' '{print $1}' )
+#        if [[ "$result" == "sc" ]] {
+#            zellij attach sc
+#        } else {
+#            zellij options --session-name sc
+#        }
+#    fi
+#fi
 
 # p10k config auto generated
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
