@@ -84,3 +84,5 @@ bindkey '^ ' autosuggest-accept
 bindkey '^k' autosuggest-accept
 
 
+
+source /home/silencer/.config/broot/launcher/bash/br
