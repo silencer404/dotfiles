@@ -7,7 +7,7 @@ if [[ "$TMUX" == "" && $- == *i* ]]; then
         else
             tmux ls | rg '0: ' | rg 'attached'
             if [[ $? == 1 ]]; then
-                exec tmux new -s 0
+                exec tmux a -t 0
             # else
                 # return 0
             fi
