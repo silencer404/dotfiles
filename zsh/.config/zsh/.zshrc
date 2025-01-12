@@ -86,7 +86,7 @@ source ${ZIM_HOME}/init.zsh
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 # keybindings
-bindkey '^ ' autosuggest-accept
+# bindkey '^ ' autosuggest-accept
 bindkey '^k' autosuggest-accept
 
 
