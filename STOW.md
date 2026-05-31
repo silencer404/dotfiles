@@ -10,7 +10,14 @@ dotfiles/
 ├── nvim/.config/nvim/
 ├── tmux/.config/tmux/tmux.conf
 ├── vim/.vimrc                         # → ~/.vimrc
-└── zsh/                               # → ~/.zshrc, ~/.zshenv, ~/.zprofile, ~/.config/zsh/
+└── zsh/                               # → ~/.zshenv, ~/.config/zsh/
+    ├── .zshenv                        # → ~/.zshenv (设置 ZDOTDIR)
+    └── .config/zsh/                   # → ~/.config/zsh/
+        ├── .zshrc
+        ├── .zprofile
+        ├── .alias.zsh
+        ├── .p10k.zsh
+        └── .secrets                   # (gitignored, 本地维护)
 ```
 
 ## 快速参考
@@ -43,7 +50,7 @@ stow -n -v vim
 | `nvim` | `~/.config/nvim` | 已部署 |
 | `tmux` | `~/.config/tmux` | 已部署 |
 | `vim` | `~/.vimrc` | 已部署 |
-| `zsh` | `~/.zshrc` 等 | 已部署 |
+| `zsh` | `~/.zshenv`, `~/.config/zsh/` | 已部署 |
 | `alacritty` | `~/.config/alacritty` | 未部署 |
 
 ## 添加新工具
