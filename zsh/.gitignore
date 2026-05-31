@@ -1,2 +1,3 @@
 *.zwc
 *.old
+.secrets
